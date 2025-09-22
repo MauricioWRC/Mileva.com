@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo ao site</h1>
+<p>Este é um exemplo de aplicação Flask com autenticação segura, registro de usuários, recuperação de senha e integração com Supabase.</p>
+{% if not current_user.is_authenticated %}
+<p><a href="{{ url_for('register') }}" class="btn">Crie sua conta</a> ou <a href="{{ url_for('login') }}" class="btn">faça login</a>.</p>
+{% else %}
+<p>Você está logado como {{ current_user.username }}.</p>
+{% endif %}
+{% endblock %}

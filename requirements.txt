@@ -1,0 +1,9 @@
+Flask
+Flask-WTF
+Flask-Mail
+Flask-Login
+Flask-Talisman
+Flask-Limiter
+python-dotenv
+pyjwt
+supabase
