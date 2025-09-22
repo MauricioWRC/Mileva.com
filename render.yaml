@@ -1,0 +1,38 @@
+# render.yaml
+services:
+  - type: web
+    name: flask-app
+    env: docker
+    plan: free        # use "starter" se preferir o plano Starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # opcional: especifique branch e autodeploy
+    # branch: main
+    # autoDeploy: true
+    envVars:
+      # Variáveis sensíveis definidas no painel do Render
+      - key: SECRET_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: MAIL_SERVER
+        sync: false
+      - key: MAIL_PORT
+        sync: false
+      - key: MAIL_USE_TLS
+        sync: false
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_DEFAULT_SENDER
+        sync: false
+      - key: RATELIMIT_DEFAULT
+        value: "60 per minute"
+      # Variáveis de configuração Python (já vêm definidas no Dockerfile, mas você pode duplicá-las aqui)
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
